@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td><a href="#">aaa</a></td>
+        <td><input type="button" value="修改1"></td>
+    </tr>
+    <tr>
+        <td><a href="#">bbb</a></td>
+        <td><input type="button" value="修改2"></td>
+    </tr>
+    <tr>
+        <td><a href="#">ccc</a></td>
+        <td><input type="button" value="修改3"></td>
+    </tr>
+    <tr>
+        <td><a href="#">ddd</a></td>
+        <td><input type="button" value="修改4"></td>
+    </tr>
+
+
+</table>
+<script type="text/javascript">
+    $(function () {
+       $("input").each(function (index, obj) {
+           $(obj).click(function () {
+               var td = $(this).parents("tr").find("td:eq(0)");
+               var a = td.find("a").text();
+               var input = $("<input value='"+a+"'>");
+               $(input).blur(function () {
+
+                   alert($(this).val())
+               })
+
+               $(td).html(input)
+           })
+       })
+    })
+
+</script>
+
+</body>
+</html>

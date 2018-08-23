@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.question.dao.QuestionDao">
+<insert id="addQuestion" parameterType="Questino" useGeneratedKeys="true" keyProperty="id">
+    insert into question(title,detail,created_time,user_id,reply_count,update_time)
+    values (#{title},#{detail},now(),#{userId},0,now())
+</insert>
+    <resultMap id="queMap" type="Question">
+        <id property="id" column="id"/>
+        <result property="createdDate" column="created_time"/>
+        <result property="title" column="title"/>
+        <result property="replyCount" column="replyCount"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="detail" column="detail"/>
+        <association property="user" javaType="User">
+            <id property="id" column="id"/>
+            <result property="nickname" column="nickname"/>
+        </association>
+
+        <collection property="answers" ofType="Answer">
+            <id property="id" column="id"/>
+            <result property="content" column="content"/>
+            <result property="questionId" column="id"/>
+            <result property="createdTime" column="created_time"/>
+            <association property="user" javaType="User">
+                <id property="id" column="id"/>
+                <result property="nickname" column="nickname"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <select id="getQuestionByIdWithAnswer" parameterType="int" resultMap="queMap">
+        select q.id,q.title,q.created_time,q.user_id,q.reply_count,q.update_time,u.nickname,a.id
+
+
+    </select>
+
+    
+
+
+
+
+</mapper>

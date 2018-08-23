@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MyCloud:war">
+    <output-path>$PROJECT_DIR$/MyCloud/target</output-path>
+    <root id="archive" name="MyCloud-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="MyCloud:war exploded" />
+    </root>
+  </artifact>
+</component>

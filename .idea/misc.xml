@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/admin-picture" />
+    <file type="web" url="file://$PROJECT_DIR$/animals" />
+    <file type="web" url="file://$PROJECT_DIR$/annimals0812" />
+    <file type="web" url="file://$PROJECT_DIR$/MyCloud" />
+    <file type="web" url="file://$PROJECT_DIR$/MyShedule" />
+    <file type="web" url="file://$PROJECT_DIR$/question" />
+    <file type="web" url="file://$PROJECT_DIR$/Rain" />
+    <file type="web" url="file://$PROJECT_DIR$/vip" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Rain/pom.xml" />
+        <option value="$PROJECT_DIR$/question/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-picture/pom.xml" />
+        <option value="$PROJECT_DIR$/MyShedule/pom.xml" />
+        <option value="$PROJECT_DIR$/vip/pom.xml" />
+        <option value="$PROJECT_DIR$/animals/pom.xml" />
+        <option value="$PROJECT_DIR$/MyCloud/pom.xml" />
+        <option value="$PROJECT_DIR$/annimals0812/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

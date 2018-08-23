@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.rain.mapper.StationDao">
+<!--
+    //增加
+    int insertStation(Station station);
+    //删除
+    int deleteStation(@Param("id") Long id);
+    //修改
+    Station updateStation(@Param("id") Long id);
+    //查找
+    Station selectOneById(@Param("id") Long id);
+    List<Station> selectAllStation();-->
+<insert id="insertStation" parameterType="Station">
+    insert into station(name)
+    values (#{name})
+</insert>
+
+    <delete id="deleteStation" >
+        delete from station
+        where id=#{id}
+    </delete>
+
+    <select id="selectOneById" resultType="Station">
+        select id,name
+        from station
+        where id=#{id}
+
+    </select>
+
+    <select id="selectAllStation" resultType="Station" >
+        select id,name from station
+        
+    </select>
+
+
+
+
+</mapper>

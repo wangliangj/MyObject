@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.schedule.dao.ScheduleDao">
+
+<resultMap id="scheduleMap" type="Schedule">
+    <id property="id" column="ID"/>
+    <result property="classId" column="CLASS_ID"/>
+    <result property="roomId" column="ROOM_ID"/>
+    <result property="course" column="COURSE"/>
+    <result property="workday" column="WORKDAY"/>
+    <result property="sort" column="SORT"/>
+
+</resultMap>
+
+
+
+
+</mapper>

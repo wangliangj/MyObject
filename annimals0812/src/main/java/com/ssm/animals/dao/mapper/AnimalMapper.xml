@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.animals.dao.AnimalDao">
+
+    <!--void addAnimals(Animal animal);
+
+    void deleteAnimals(Integer id);
+
+    void updateAnimals(Animal animal);
+
+    List<Animal> selectAll();-->
+    <insert id="addAnimals" keyProperty="id" useGeneratedKeys="true">
+        insert into animals(name,birthday,sex,description,kind)
+        values (#{name},#{birthday},#{sex},#{description},#{kind});
+    </insert>
+
+    <update id="updateAnimals" parameterType="Animal">
+         update animals
+         set
+         name=#{name},birthday=#{birthday},sex=#{sex},description=#{description},kind=#{kind}
+         where id =#{id};
+
+    </update>
+
+
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.cloud.dao.CloudDirDao">
+
+    <resultMap id="dirMap" type="CloudDir">
+        <id property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="size" column="SIZE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+
+    </resultMap>
+
+    <insert id="addDir" useGeneratedKeys="true" keyProperty="id" parameterType="CloudDir">
+        insert into cloud_dir(NAME,USER_ID,SIZE,UPDATE_TIME)
+        values (#{name},#{userId},0,#{updateTime})
+    </insert>
+
+    <delete id="delDir" parameterType="CloudDir">
+        delete  from cloud_dir
+        where ID=#{id} and USER_ID=#{userId}
+    </delete>
+
+    <update id="updateDir" parameterType="CloudDir">
+        update cloud_dir
+        <set>
+        <if test="name!=null and name!='' ">name=#{name},</if>
+        <if test="size!=null">size=#{size},</if>
+         UPDATE_TIME=now()
+        </set>
+        where ID=#{id} and USER_ID=#{userId}
+    </update>
+
+    <select id="getDirList"  parameterType="int" resultMap="dirMap">
+        select ID,NAME,USER_ID,SIZE,UPDATE_TIME
+        from cloud_dir
+        where USER_ID=#{userId}
+    </select>
+    <select id="getDirById" parameterType="int" resultMap="dirMap">
+          select ID,NAME,USER_ID,SIZE,UPDATE_TIME
+        from cloud_dir
+        WHERE ID=#{id}
+    </select>
+
+</mapper>

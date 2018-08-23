@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.rain.mapper.InfoDao">
+    <insert id="insertInfo" parameterType="Info">
+        insert  into info(area,minrainfall,maxrainfall,raintime,sid)
+        values (#{area},#{minrainfall},#{maxrainfall},#{raintime},#{sid})
+    </insert>
+
+    <select id="selectInfoById" resultType="Info">
+        select area,minrainfall,maxrainfall,raintime,sid
+        from info
+        where id=#{id}
+    </select>
+
+    <select id="selectInfoAll" resultType="Info">
+        select id, area,minrainfall,maxrainfall,raintime,sid
+        from  info
+    </select>
+
+    <delete id="deleteInfo" parameterType="java.lang.Long">
+        delete from info
+        where id=#{id}
+
+    </delete>
+
+    <update id="updateInfo" parameterType="Info">
+        update info set area=#{area},minrainfall=#{minrainfall},maxrainfall=#{maxrainfall},raintime=#{raintime},sid=#{sid}
+        where id=#{id}
+    </update>
+
+    <select id="findInfoByPage" resultType="Info">
+        select  id,area,minrainfall,maxrainfall,raintime,sid
+        from info
+        limit #{start} ,#{pageSize}
+    </select>
+
+    <select id="findInfoCount" resultType="int">
+        select count(id)
+        from info
+    </select>
+
+    <select id="findInfopageByArea" resultType="Info">
+        select id, area,minrainfall,maxrainfall,raintime,sid
+        from info
+        where area LIKE #{area}
+         limit #{start} ,#{pageSize}
+    </select>
+
+    <select id="findInfoCountByArea" resultType="int">
+        select count(id)
+        from info
+        where area LIKE #{area}
+
+    </select>
+
+
+</mapper>

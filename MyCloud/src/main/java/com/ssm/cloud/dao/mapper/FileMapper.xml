@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.cloud.dao.CloudFileDao">
+    <resultMap id="fileMap" type="CloudFile">
+        <id property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="size" column="SIZE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="dirId" column="DIR_ID"/>
+
+    </resultMap>
+
+
+    <insert id="addFile" parameterType="CloudFile" useGeneratedKeys="true" keyProperty="id">
+        insert into cloud_file(ID,NAME,SIZE,UPDATE_TIME,DIR_ID,USER_ID)
+        values (#{id},#{name},0,#{updateTime},#{dirId},#{userId})
+    </insert>
+
+    <select id="getFileById" parameterType="int" resultMap="fileMap">
+        select ID,NAME,SIZE,UPDATE_TIME,DIR_ID,USER_ID
+        from cloud_file
+        where DIR_ID=#{dirId} and USER_ID=#{userId}
+    </select>
+
+    <delete id="deleteFile" parameterType="int">
+        delete from cloud_file
+        where ID=#{id}
+    </delete>
+
+    <select id="getFileList" parameterType="map" resultMap="fileMap">
+        select  ID,NAME,SIZE,UPDATE_TIME,DIR_ID,USER_ID
+        from  cloud_file
+        <where>
+            <if test="name!=null and name!=''">
+                NAME =#{name}
+            </if>
+        </where>
+    </select>
+
+
+
+</mapper>

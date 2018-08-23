@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.animal.dao.AnimalDao">
+
+    <resultMap id="animalMap" type="Animal">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="description" column="description"/>
+        <result property="kind" column="kind"/>
+    </resultMap>
+
+    <insert id="addAnimal" parameterType="Animal">
+        insert into animals(name,birthday,kind,sex,description)
+        values (#{name},#{birthday},#{kind},#{sex},#{description})
+    </insert>
+
+    <select id="getAnimalList" parameterType="map" resultMap="animalMap">
+        select id,name,birthday,sex,description,kind
+        from animals
+        <where>
+            <if test="kind != null ">kind =#{kind}</if>
+        </where>
+
+    </select>
+
+
+</mapper>

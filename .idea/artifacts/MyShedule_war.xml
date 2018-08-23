@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MyShedule:war">
+    <output-path>$PROJECT_DIR$/MyShedule/target</output-path>
+    <root id="archive" name="ssm01.war">
+      <element id="artifact" artifact-name="MyShedule:war exploded" />
+    </root>
+  </artifact>
+</component>
